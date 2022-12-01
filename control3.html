@@ -43,17 +43,32 @@ for (let counter = 0, moreCounter = 0; counter <= 6; counter += 5, moreCounter++
 <script type="application/javascript">
     const runScript = () => {
         const removeAndReturnNumberOfRemaining = (i) => {
-            console.log(`pineapple ${i}`)
+            console.log(i)
             let element = document.getElementsByClassName("pineapple").item(0);
-            if (!!element) {
+            if (element !== undefined && element !== null) {
                 element.remove()
             }
             return document.getElementsByClassName("pineapple").length
         }
 
-        for (removeAndReturnNumberOfRemaining(1); removeAndReturnNumberOfRemaining(2) < 1; removeAndReturnNumberOfRemaining(4)) {
-            removeAndReturnNumberOfRemaining(3);
-            break;
+        function initLoop() {
+            return removeAndReturnNumberOfRemaining("init loop");
+        }
+
+        function checkCondition() {
+            return removeAndReturnNumberOfRemaining("check condition") > 0;
+        }
+
+        function afterLoop() {
+            return removeAndReturnNumberOfRemaining("after loop");
+        }
+
+        function block() {
+            removeAndReturnNumberOfRemaining("execute block");
+        }
+
+        for (initLoop(); checkCondition(); afterLoop()){
+             block();
         }
 
     };
