@@ -69,12 +69,12 @@ const message = Math.random() < 0.5 ? "smaller" : "bigger"
 checking for undefined, null or other "falsy" things can be replaced with the "optional chaining" operator "?."
 <pre>
 <code class="language-javascript">
-const array = ["text"]
+const array1 = ["text"]
 let result;
-if (array[0]) result = array[0].toUpperCase()
+if (array1[0]) result = array1[0].toUpperCase()
 // same as
-const array = ["text"]
-let result = array[0]?.toUpperCase()
+const array2 = ["text"]
+let result = array2[0]?.toUpperCase()
 </code>
 </pre>
 
@@ -90,10 +90,10 @@ let result = array[0]?.toUpperCase()
 <script type="application/javascript">
     const runScript = () => {
 
-        let element = document.getElementsByClassName("pineapple").item(-1);
+        let element = document.getElementsByClassName("pineapple").item(0);
         element?.remove()
 
-        if (document.getElementsByClassName("pineapple").length <= 0) {
+        if (document.getElementsByClassName("pineapple").length > 0) {
             document.getElementsByClassName("pineapple").item(0)?.remove()
         } else {
             let banana = document.createElement('span');
@@ -102,7 +102,7 @@ let result = array[0]?.toUpperCase()
         }
 
         element = document.getElementsByClassName("pineapple").item(0);
-        if (element?.textContent === "🍅") element.remove()
+        if (element?.textContent === "🍍") element.remove()
 
 
 
